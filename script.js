@@ -4,15 +4,19 @@ function cryptText(string) {
     string = string.split(' ');
     let result = ''
     string.forEach(function(item) {
-        for (let i = 0; i < letters.length; i++) {
-            if (letters[i] === item[0].toLowerCase()) {
-                return result = result + 'код' + item + " ";
-            } else {
-                return result = result + 'инту' + item + " ";
+        if (item.length > 2) {
+            for (let i = 0; i < letters.length; i++) {
+                if (letters[i] === item[0].toLowerCase()) {
+                    return result = result + 'код' + item + " ";
+                }
             }
+            return result = result + 'инту' + item + " ";
+        } else {
+            return result = result + item + 'ик' + " ";
         }
+
     });
     return result;
 }
 
-console.log(cryptText('Привет амир'))
+console.log(cryptText('я и он теперь в интукод'))
